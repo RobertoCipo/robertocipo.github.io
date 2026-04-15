@@ -79,7 +79,18 @@
     .sidebar nav a:hover,
     .sidebar nav a.active { color: var(--ink); border-bottom-color: var(--rule); }
 
-    .content { flex: 1; max-width: 740px; padding: 80px 48px 120px; }
+    /* ── centering wrapper ── */
+    .content-outer {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 740px;
+      padding: 80px 48px 120px;
+    }
 
     header { margin-bottom: 32px; animation: fadeDown .9s ease both; }
 
@@ -422,380 +433,384 @@
       </nav>
     </aside>
 
-    <div class="content">
+    <!-- centering wrapper -->
+    <div class="content-outer">
+      <div class="content">
 
-      <header>
-        <div class="site-name-main">Roberto Maria Cipollina</div>
-      </header>
+        <header>
+          <div class="site-name-main">Roberto Maria Cipollina</div>
+        </header>
 
-      <main>
+        <main>
 
-        <section id="portfolio">
-          <h2>Portfolio</h2>
+          <section id="portfolio">
+            <h2>Portfolio</h2>
 
-          <div class="portfolio-subcategory" id="selected-compositions">Selected Compositions</div>
+            <div class="portfolio-subcategory" id="selected-compositions">Selected Compositions</div>
 
-          <ul class="portfolio-list">
+            <ul class="portfolio-list">
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2025</div>
-                <div class="portfolio-title">Kassia</div>
-                <div class="portfolio-desc">Electroacoustic work. Commission: Resonance of Stones. Première: Naxos, Greece.</div>
-                <a class="portfolio-link" href="https://www.mantinea.institute/ros_overview/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2025</div>
+                  <div class="portfolio-title">Kassia</div>
+                  <div class="portfolio-desc">Electroacoustic work. Commission: Resonance of Stones. Première: Naxos, Greece.</div>
+                  <a class="portfolio-link" href="https://www.mantinea.institute/ros_overview/" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2025</div>
-                <div class="portfolio-title">Ulysses IIa</div>
-                <div class="portfolio-desc">For violin solo and live electronics. IRCAM. Première: Eleonora Sofia Podestà — Liepāja Theatre, Latvia.</div>
-                <a class="portfolio-link" href="https://forum.ircam.fr/article/detail/ulysses-2-hybrid-composition-for-violin-and-responsive-ai-systems-by-eleonora-sofia-podesta-and-roberto-maria-cipollina/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2025</div>
+                  <div class="portfolio-title">Ulysses IIa</div>
+                  <div class="portfolio-desc">For violin solo and live electronics. IRCAM. Première: Eleonora Sofia Podestà — Liepāja Theatre, Latvia.</div>
+                  <a class="portfolio-link" href="https://forum.ircam.fr/article/detail/ulysses-2-hybrid-composition-for-violin-and-responsive-ai-systems-by-eleonora-sofia-podesta-and-roberto-maria-cipollina/" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2024</div>
-                <div class="portfolio-title">Al-Qantarah</div>
-                <div class="portfolio-desc">Commission by Icarus Ensemble. Première: Civic Ethnographic and Diocesan Museum "Giovanni Podenzana", La Spezia.</div>
-                <a class="portfolio-link" href="https://conssp.it/wp-content/uploads/2024/11/Locandina-Concerto-1-dicembre.pdf" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2024</div>
+                  <div class="portfolio-title">Al-Qantarah</div>
+                  <div class="portfolio-desc">Commission by Icarus Ensemble. Première: Civic Ethnographic and Diocesan Museum "Giovanni Podenzana", La Spezia.</div>
+                  <a class="portfolio-link" href="https://conssp.it/wp-content/uploads/2024/11/Locandina-Concerto-1-dicembre.pdf" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2024</div>
-                <div class="portfolio-title">Modules for an Opera</div>
-                <div class="portfolio-desc">For saxophone and piano. Première: Real Academia de Bellas Artes de San Fernando, Madrid — David Náñez (tenor saxophone) and Kayoko Morimoto (piano).</div>
-                <a class="portfolio-link" href="https://www.realacademiabellasartessanfernando.com/actividades/conciertos/sax-and-villas/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2024</div>
+                  <div class="portfolio-title">Modules for an Opera</div>
+                  <div class="portfolio-desc">For saxophone and piano. Première: Real Academia de Bellas Artes de San Fernando, Madrid — David Náñez (tenor saxophone) and Kayoko Morimoto (piano).</div>
+                  <a class="portfolio-link" href="https://www.realacademiabellasartessanfernando.com/actividades/conciertos/sax-and-villas/" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2023</div>
-                <div class="portfolio-title">Apparuit</div>
-                <div class="portfolio-desc">For two saxophones and piano. Première: Willa Lentza, Szczecin — Giuseppe Bruno (piano).</div>
-                <a class="portfolio-link" href="https://willa-lentza.pl/strona/365-SAXandVILLAS_2024_" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2023</div>
+                  <div class="portfolio-title">Apparuit</div>
+                  <div class="portfolio-desc">For two saxophones and piano. Première: Willa Lentza, Szczecin — Giuseppe Bruno (piano).</div>
+                  <a class="portfolio-link" href="https://willa-lentza.pl/strona/365-SAXandVILLAS_2024_" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2022</div>
-                <div class="portfolio-title">Lu Re d'Amuri</div>
-                <div class="portfolio-desc">For clarinet and saxophone. Première: Conservatorio "A. Scarlatti", Palermo — Mario Romeo and Emanuele Anzalone.</div>
-                <a class="portfolio-link" href="https://laboiteamusique.eu/product/reedin-the-airn-duo-romance-emanuele-salvatore-anzalone/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2022</div>
+                  <div class="portfolio-title">Lu Re d'Amuri</div>
+                  <div class="portfolio-desc">For clarinet and saxophone. Première: Conservatorio "A. Scarlatti", Palermo — Mario Romeo and Emanuele Anzalone.</div>
+                  <a class="portfolio-link" href="https://laboiteamusique.eu/product/reedin-the-airn-duo-romance-emanuele-salvatore-anzalone/" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2021</div>
-                <div class="portfolio-title">Variazioni su un tema di Bellini</div>
-                <div class="portfolio-desc">For guitar. Première: Davide Sciacca — Royal Northern College of Music, Manchester.</div>
-                <a class="portfolio-link" href="https://e-space.mmu.ac.uk/632179/1/Davide%20Sciacca%20-%20PhD%20Thesis.pdf" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2021</div>
+                  <div class="portfolio-title">Variazioni su un tema di Bellini</div>
+                  <div class="portfolio-desc">For guitar. Première: Davide Sciacca — Royal Northern College of Music, Manchester.</div>
+                  <a class="portfolio-link" href="https://e-space.mmu.ac.uk/632179/1/Davide%20Sciacca%20-%20PhD%20Thesis.pdf" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2021</div>
-                <div class="portfolio-title">Eight String Quartets</div>
-                <div class="portfolio-desc">Multimedia work. Academy of Ideas, Toronto, Canada.</div>
-                <a class="portfolio-link" href="https://www.youtube.com/@academyofideas" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2021</div>
+                  <div class="portfolio-title">Eight String Quartets</div>
+                  <div class="portfolio-desc">Multimedia work. Academy of Ideas, Toronto, Canada.</div>
+                  <a class="portfolio-link" href="https://www.youtube.com/@academyofideas" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2019</div>
-                <div class="portfolio-title">Alchimiae</div>
-                <div class="portfolio-desc">Multimedia work for string orchestra. Commission: Lu.C.C.A. – Lucca Center of Contemporary Art, Lucca.</div>
-                <a class="portfolio-link" href="https://artsupp.com/it/lucca/mostre/alchimie-lucca-museum" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2019</div>
+                  <div class="portfolio-title">Alchimiae</div>
+                  <div class="portfolio-desc">Multimedia work for string orchestra. Commission: Lu.C.C.A. – Lucca Center of Contemporary Art, Lucca.</div>
+                  <a class="portfolio-link" href="https://artsupp.com/it/lucca/mostre/alchimie-lucca-museum" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li class="no-border">
-              <div class="portfolio-info">
-                <div class="portfolio-year">2018</div>
-                <div class="portfolio-title">A Lover's Tale</div>
-                <div class="portfolio-desc">For violin and guitar. Première: Convitto delle Arti, Noto — Davide Sciacca and Maria Natalia Ruscica (Ten Strings Duo).</div>
-                <a class="portfolio-link" href="https://globusmagazine.it/134891-2/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li class="no-border">
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2018</div>
+                  <div class="portfolio-title">A Lover's Tale</div>
+                  <div class="portfolio-desc">For violin and guitar. Première: Convitto delle Arti, Noto — Davide Sciacca and Maria Natalia Ruscica (Ten Strings Duo).</div>
+                  <a class="portfolio-link" href="https://globusmagazine.it/134891-2/" target="_blank">View →</a>
+                </div>
+              </li>
 
-          </ul>
+            </ul>
 
-          <div class="portfolio-subcategory" style="margin-top: 48px;" id="conferences">Conferences</div>
+            <div class="portfolio-subcategory" style="margin-top: 48px;" id="conferences">Conferences</div>
 
-          <ul class="portfolio-list">
+            <ul class="portfolio-list">
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2026</div>
-                <div class="portfolio-title">Artistic Research, Higher Education and Technological Innovation in Opera</div>
-                <div class="portfolio-desc">Casa Italiana Zerilli-Marimò, New York University. International symposium examining the intersections of artistic research, conservatory education, and emerging technologies in contemporary opera production and performance.</div>
-                <a class="portfolio-link" href="https://www.casaitaliananyu.org/events/artistic-research-higher-education-and-technological-innovation-in-opera-4/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2026</div>
+                  <div class="portfolio-title">Artistic Research, Higher Education and Technological Innovation in Opera</div>
+                  <div class="portfolio-desc">Casa Italiana Zerilli-Marimò, New York University. International symposium examining the intersections of artistic research, conservatory education, and emerging technologies in contemporary opera production and performance.</div>
+                  <a class="portfolio-link" href="https://www.casaitaliananyu.org/events/artistic-research-higher-education-and-technological-innovation-in-opera-4/" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2025</div>
-                <div class="portfolio-title">New Technologies Applied to Music Teaching and Performance</div>
-                <div class="portfolio-desc">International Day of Artistic Research, Conservatorio "G. Puccini", La Spezia. A research presentation within the doctoral programme in Artistic Research on Musical Heritage, addressing immersive technologies, AI, and their applications to musical practice and pedagogy. With Eleonora Sofia Podestà.</div>
-                <a class="portfolio-link" href="https://conssp.it/2025/11/03/giornata-internazionale-della-ricerca-artistica-07-novembre-2025/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2025</div>
+                  <div class="portfolio-title">New Technologies Applied to Music Teaching and Performance</div>
+                  <div class="portfolio-desc">International Day of Artistic Research, Conservatorio "G. Puccini", La Spezia. A research presentation within the doctoral programme in Artistic Research on Musical Heritage, addressing immersive technologies, AI, and their applications to musical practice and pedagogy. With Eleonora Sofia Podestà.</div>
+                  <a class="portfolio-link" href="https://conssp.it/2025/11/03/giornata-internazionale-della-ricerca-artistica-07-novembre-2025/" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2025</div>
-                <div class="portfolio-title">Ulysses 2: Hybrid Composition for Violin and Responsive AI Systems</div>
-                <div class="portfolio-desc">IRCAM Forum Workshops Hors-les-Murs, Rīga–Liepāja, Latvia. A presentation of a collaborative work integrating Somax2 real-time generative AI with live violin improvisation, exploring co-creative human-machine interaction within a structured formal framework. With Eleonora Sofia Podestà.</div>
-                <a class="portfolio-link" href="https://forum.ircam.fr/article/detail/ulysses-2-hybrid-composition-for-violin-and-responsive-ai-systems-by-eleonora-sofia-podesta-and-roberto-maria-cipollina/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2025</div>
+                  <div class="portfolio-title">Ulysses 2: Hybrid Composition for Violin and Responsive AI Systems</div>
+                  <div class="portfolio-desc">IRCAM Forum Workshops Hors-les-Murs, Rīga–Liepāja, Latvia. A presentation of a collaborative work integrating Somax2 real-time generative AI with live violin improvisation, exploring co-creative human-machine interaction within a structured formal framework. With Eleonora Sofia Podestà.</div>
+                  <a class="portfolio-link" href="https://forum.ircam.fr/article/detail/ulysses-2-hybrid-composition-for-violin-and-responsive-ai-systems-by-eleonora-sofia-podesta-and-roberto-maria-cipollina/" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2020</div>
-                <div class="portfolio-title">Dalla didattica alla composizione: i palazzi della memoria in musica</div>
-                <div class="portfolio-desc">Festival Amfiteatrof, Levanto. An exploration of the method of loci as a pedagogical and compositional tool, tracing its classical origins and its application to music learning and creative practice.</div>
-                <a class="portfolio-link" href="https://levantomusicfestival.it/evento/dalla-didattica-alla-composizione-i-palazzi-della-memoria-in-musica/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2020</div>
+                  <div class="portfolio-title">Dalla didattica alla composizione: i palazzi della memoria in musica</div>
+                  <div class="portfolio-desc">Festival Amfiteatrof, Levanto. An exploration of the method of loci as a pedagogical and compositional tool, tracing its classical origins and its application to music learning and creative practice.</div>
+                  <a class="portfolio-link" href="https://levantomusicfestival.it/evento/dalla-didattica-alla-composizione-i-palazzi-della-memoria-in-musica/" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li class="no-border">
-              <div class="portfolio-info">
-                <div class="portfolio-year">2018</div>
-                <div class="portfolio-title">Mario Castelnuovo-Tedesco: Capriccio Diabolico e Tarantella</div>
-                <div class="portfolio-desc">Castello Ursino, Catania. A philological and stylistic analysis of the dispute between composer and editor, with a focus on compositional choices and their implications for contemporary guitar writing.</div>
-                <a class="portfolio-link" href="http://www.elisaguccione.it/sicilianpeople/roberto-cipollina-e-mario-castelnuovo-tedesco-al-castello-ursino-per-il-centro-magma-di-catania/" target="_blank">View →</a>
-              </div>
-            </li>
+              <li class="no-border">
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2018</div>
+                  <div class="portfolio-title">Mario Castelnuovo-Tedesco: Capriccio Diabolico e Tarantella</div>
+                  <div class="portfolio-desc">Castello Ursino, Catania. A philological and stylistic analysis of the dispute between composer and editor, with a focus on compositional choices and their implications for contemporary guitar writing.</div>
+                  <a class="portfolio-link" href="http://www.elisaguccione.it/sicilianpeople/roberto-cipollina-e-mario-castelnuovo-tedesco-al-castello-ursino-per-il-centro-magma-di-catania/" target="_blank">View →</a>
+                </div>
+              </li>
 
-          </ul>
+            </ul>
 
-          <div class="portfolio-subcategory" style="margin-top: 48px;" id="other-works">Other Works</div>
+            <div class="portfolio-subcategory" style="margin-top: 48px;" id="other-works">Other Works</div>
 
-          <ul class="portfolio-list">
+            <ul class="portfolio-list">
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2025 –</div>
-                <div class="portfolio-title">Opera VR</div>
-                <div class="portfolio-desc">Lead Designer and 3D Modeler for an immersive virtual reality environment for opera education. The spatial architecture of the platform is grounded in the method of loci, translating key dramatic and musical elements into explorable symbolic objects and environments. Within the project, Cipollina also serves as instructor of the method of loci technique.</div>
-                <a class="portfolio-link" href="https://opera-vr.com" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2025 –</div>
+                  <div class="portfolio-title">Opera VR</div>
+                  <div class="portfolio-desc">Lead Designer and 3D Modeler for an immersive virtual reality environment for opera education. The spatial architecture of the platform is grounded in the method of loci, translating key dramatic and musical elements into explorable symbolic objects and environments. Within the project, Cipollina also serves as instructor of the method of loci technique.</div>
+                  <a class="portfolio-link" href="https://opera-vr.com" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2025 –</div>
-                <div class="portfolio-title">Blender Instructor — Cocotechlab</div>
-                <div class="portfolio-desc">3D modeling at Cocotechlab, Cologne.</div>
-                <a class="portfolio-link" href="#">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2025 –</div>
+                  <div class="portfolio-title">Blender Instructor — Cocotechlab</div>
+                  <div class="portfolio-desc">3D modeling at Cocotechlab, Cologne.</div>
+                  <a class="portfolio-link" href="#">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2019 – 2024</div>
-                <div class="portfolio-title">Guitar Teacher — Public Secondary Schools</div>
-                <div class="portfolio-desc">Classical guitar teacher in state secondary schools (La Spezia).</div>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2019 – 2024</div>
+                  <div class="portfolio-title">Guitar Teacher — Public Secondary Schools</div>
+                  <div class="portfolio-desc">Classical guitar teacher in state secondary schools (La Spezia).</div>
+                </div>
+              </li>
 
-            <li class="no-border">
-              <div class="portfolio-info">
-                <div class="portfolio-year">2016 – 2023</div>
-                <div class="portfolio-title">Guitar &amp; Music Theory Instructor — Private Academies</div>
-                <div class="portfolio-desc">Classical and electric guitar, solfège and harmony at Officine Sonore, Caltanissetta (2016–2018) and Accademia Bianchi, Sarzana (2023).</div>
-              </div>
-            </li>
+              <li class="no-border">
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2016 – 2023</div>
+                  <div class="portfolio-title">Guitar &amp; Music Theory Instructor — Private Academies</div>
+                  <div class="portfolio-desc">Classical and electric guitar, solfège and harmony at Officine Sonore, Caltanissetta (2016–2018) and Accademia Bianchi, Sarzana (2023).</div>
+                </div>
+              </li>
 
-          </ul>
+            </ul>
 
-          <div class="portfolio-subcategory" style="margin-top: 48px;" id="books-papers">Books &amp; Papers</div>
+            <div class="portfolio-subcategory" style="margin-top: 48px;" id="books-papers">Books &amp; Papers</div>
 
-          <ul class="portfolio-list">
+            <ul class="portfolio-list">
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2025</div>
-                <div class="portfolio-title">Ulysses IIa: Structured Contingency and Intersubjectivity in Composition with Co-generative Systems</div>
-                <div class="portfolio-desc">Paper. SPAMEC — Conservatorio "San Pietro a Majella", Naples.</div>
-                <a class="portfolio-link" href="#">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2025</div>
+                  <div class="portfolio-title">Ulysses IIa: Structured Contingency and Intersubjectivity in Composition with Co-generative Systems</div>
+                  <div class="portfolio-desc">Paper. SPAMEC — Conservatorio "San Pietro a Majella", Naples.</div>
+                  <a class="portfolio-link" href="#">View →</a>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2020</div>
-                <div class="portfolio-title">Guitar Writing Applied: Modern Orchestration Systems in Symphonic and Chamber Contexts</div>
-                <div class="portfolio-desc">Book. Published in Italian (2019) and English (2020). ISBN 9781869173259</div>
-                <a class="portfolio-link" href="https://www.amazon.com/dp/B0977FLBD2" target="_blank">View →</a>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2020</div>
+                  <div class="portfolio-title">Guitar Writing Applied: Modern Orchestration Systems in Symphonic and Chamber Contexts</div>
+                  <div class="portfolio-desc">Book. Published in Italian (2019) and English (2020). ISBN 9781869173259</div>
+                  <a class="portfolio-link" href="https://www.amazon.com/dp/B0977FLBD2" target="_blank">View →</a>
+                </div>
+              </li>
 
-            <li class="no-border">
-              <div class="portfolio-info">
-                <div class="portfolio-year">2018</div>
-                <div class="portfolio-title">Mario Castelnuovo-Tedesco: "Capriccio Diabolico" and "Tarantella" within the Problem of the Philological Analysis of the Editions for Execution Purposes</div>
-                <div class="portfolio-desc">Book. Published in Italian (2018) and English (2019). ISBN 9781795175296</div>
-                <a class="portfolio-link" href="https://www.amazon.com/dp/B07N4QSLYS" target="_blank">View →</a>
-              </div>
-            </li>
+              <li class="no-border">
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2018</div>
+                  <div class="portfolio-title">Mario Castelnuovo-Tedesco: "Capriccio Diabolico" and "Tarantella" within the Problem of the Philological Analysis of the Editions for Execution Purposes</div>
+                  <div class="portfolio-desc">Book. Published in Italian (2018) and English (2019). ISBN 9781795175296</div>
+                  <a class="portfolio-link" href="https://www.amazon.com/dp/B07N4QSLYS" target="_blank">View →</a>
+                </div>
+              </li>
 
-          </ul>
+            </ul>
 
-          <div class="portfolio-subcategory" style="margin-top: 48px;" id="studies">Academic Studies</div>
+            <div class="portfolio-subcategory" style="margin-top: 48px;" id="studies">Academic Studies</div>
 
-          <ul class="portfolio-list">
+            <ul class="portfolio-list">
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2025</div>
-                <div class="portfolio-title">Master's Degree in Composition</div>
-                <div class="portfolio-desc">Conservatorio "G. Puccini", La Spezia</div>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2025</div>
+                  <div class="portfolio-title">Master's Degree in Composition</div>
+                  <div class="portfolio-desc">Conservatorio "G. Puccini", La Spezia</div>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2024</div>
-                <div class="portfolio-title">Studies in Conducting and Musical Phenomenology</div>
-                <div class="portfolio-desc">Associazione Celibidache</div>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2024</div>
+                  <div class="portfolio-title">Studies in Conducting and Musical Phenomenology</div>
+                  <div class="portfolio-desc">Associazione Celibidache</div>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2024</div>
-                <div class="portfolio-title">Master in CLIL Teaching</div>
-                <div class="portfolio-desc">eCampus</div>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2024</div>
+                  <div class="portfolio-title">Master in CLIL Teaching</div>
+                  <div class="portfolio-desc">eCampus</div>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2021</div>
-                <div class="portfolio-title">Teaching Qualification AB56 — Classical Guitar</div>
-                <div class="portfolio-desc">Ministry of Education, Italy</div>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2021</div>
+                  <div class="portfolio-title">Teaching Qualification AB56 — Classical Guitar</div>
+                  <div class="portfolio-desc">Ministry of Education, Italy</div>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2021</div>
-                <div class="portfolio-title">English Language Certification C2</div>
-                <div class="portfolio-desc">AELS</div>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2021</div>
+                  <div class="portfolio-title">English Language Certification C2</div>
+                  <div class="portfolio-desc">AELS</div>
+                </div>
+              </li>
 
-            <li>
-              <div class="portfolio-info">
-                <div class="portfolio-year">2020</div>
-                <div class="portfolio-title">Master in Music Applied to Images</div>
-                <div class="portfolio-desc">Conservatory "L. Boccherini", Lucca</div>
-              </div>
-            </li>
+              <li>
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2020</div>
+                  <div class="portfolio-title">Master in Music Applied to Images</div>
+                  <div class="portfolio-desc">Conservatory "L. Boccherini", Lucca</div>
+                </div>
+              </li>
 
-            <li class="no-border">
-              <div class="portfolio-info">
-                <div class="portfolio-year">2019</div>
-                <div class="portfolio-title">Master's Degree in Classical Guitar</div>
-                <div class="portfolio-desc">Conservatory "V. Bellini", Caltanissetta</div>
-              </div>
-            </li>
+              <li class="no-border">
+                <div class="portfolio-info">
+                  <div class="portfolio-year">2019</div>
+                  <div class="portfolio-title">Master's Degree in Classical Guitar</div>
+                  <div class="portfolio-desc">Conservatory "V. Bellini", Caltanissetta</div>
+                </div>
+              </li>
 
-          </ul>
+            </ul>
 
-          <div class="portfolio-subcategory" style="margin-top: 48px;" id="main-expertise">Main Expertise</div>
+            <div class="portfolio-subcategory" style="margin-top: 48px;" id="main-expertise">Main Expertise</div>
 
-          <div class="skills-grid">
-            <span class="skill-tag">Composition</span>
-            <span class="skill-tag">Acoustics &amp; Psychoacoustics</span>
-            <span class="skill-tag">Acoustic Simulation &amp; Auralization</span>
-            <span class="skill-tag">Classical Guitar</span>
-            <span class="skill-tag">Electroacoustic Composition</span>
-            <span class="skill-tag">Audio Engineering</span>
-            <span class="skill-tag">Electric Guitar</span>
-            <span class="skill-tag">Conducting</span>
-            <span class="skill-tag">3D Modelling &amp; VR</span>
-            <span class="skill-tag">Method of Loci</span>
-          </div>
-
-        </section>
-
-        <section id="research">
-          <h2>Research &amp; Practice</h2>
-          <p>
-            Roberto Maria Cipollina is a composer, guitarist, and researcher whose work sits at the intersection of composition, immersive technologies, and acoustic heritage. He is currently a PhD student in the joint doctoral programme in Artistic Research on Musical Heritage at Conservatory "A. Steffani" of Castelfranco Veneto and Conservatory "G. Puccini" of La Spezia, within the curriculum in Immersive Technologies Applied to Music.
-          </p>
-          <p>
-            His doctoral research, <em>Prometeo. Tragedia dell'ascolto</em>, focuses on the digital reconstruction of the wooden ark designed by Renzo Piano for Luigi Nono's 1984 work — a spatial instrument conceived as a necessary acoustic condition of the composition, dismantled in 1985 and never rebuilt. Through acoustic simulation, impulse response measurement at the church of San Lorenzo, and a navigable VR environment, the research documents for the first time the acoustic phenomena produced by the ark — absent from all subsequent performances.
-          </p>
-          <p>
-            In parallel, Cipollina pursues an independent line of research into composition with co-generative AI systems, developed through his work with Somax 2 at IRCAM. This research interrogates the relationship between authorial intention and machine agency, proposing the categories of structured contingency and intersubjectivity as frameworks for understanding human–AI co-creative interaction in musical performance.
-          </p>
-          <p>
-            His compositions have been performed across Europe and North America, and his work has been presented at international venues including IRCAM, the Royal Northern College of Music, and New York University.
-          </p>
-        </section>
-
-        <section id="contacts">
-          <h2>Contacts</h2>
-
-          <div class="contacts-layout">
-
-            <div class="contacts-photo">
-              <img src="photo.jpg" alt="Roberto Maria Cipollina">
+            <div class="skills-grid">
+              <span class="skill-tag">Composition</span>
+              <span class="skill-tag">Acoustics &amp; Psychoacoustics</span>
+              <span class="skill-tag">Acoustic Simulation &amp; Auralization</span>
+              <span class="skill-tag">Classical Guitar</span>
+              <span class="skill-tag">Electroacoustic Composition</span>
+              <span class="skill-tag">Audio Engineering</span>
+              <span class="skill-tag">Electric Guitar</span>
+              <span class="skill-tag">Conducting</span>
+              <span class="skill-tag">3D Modelling &amp; VR</span>
+              <span class="skill-tag">Method of Loci</span>
             </div>
 
-            <div class="contacts-info">
-              <div class="affiliation-block">
-                <div class="aff-title">Institutional Affiliation</div>
-                <p>
-                  PhD Student<br>
-                  Department of Immersive Technologies Applied to Music<br>
-                  Conservatory "A. Steffani" of Castelfranco Veneto<br>
-                  Conservatory "G. Puccini" of La Spezia<br>
-                  La Spezia, Italy
-                </p>
+          </section>
+
+          <section id="research">
+            <h2>Research &amp; Practice</h2>
+            <p>
+              Roberto Maria Cipollina is a composer, guitarist, and researcher whose work sits at the intersection of composition, immersive technologies, and acoustic heritage. He is currently a PhD student in the joint doctoral programme in Artistic Research on Musical Heritage at Conservatory "A. Steffani" of Castelfranco Veneto and Conservatory "G. Puccini" of La Spezia, within the curriculum in Immersive Technologies Applied to Music.
+            </p>
+            <p>
+              His doctoral research, <em>Prometeo. Tragedia dell'ascolto</em>, focuses on the digital reconstruction of the wooden ark designed by Renzo Piano for Luigi Nono's 1984 work — a spatial instrument conceived as a necessary acoustic condition of the composition, dismantled in 1985 and never rebuilt. Through acoustic simulation, impulse response measurement at the church of San Lorenzo, and a navigable VR environment, the research documents for the first time the acoustic phenomena produced by the ark — absent from all subsequent performances.
+            </p>
+            <p>
+              In parallel, Cipollina pursues an independent line of research into composition with co-generative AI systems, developed through his work with Somax 2 at IRCAM. This research interrogates the relationship between authorial intention and machine agency, proposing the categories of structured contingency and intersubjectivity as frameworks for understanding human–AI co-creative interaction in musical performance.
+            </p>
+            <p>
+              His compositions have been performed across Europe and North America, and his work has been presented at international venues including IRCAM, the Royal Northern College of Music, and New York University.
+            </p>
+          </section>
+
+          <section id="contacts">
+            <h2>Contacts</h2>
+
+            <div class="contacts-layout">
+
+              <div class="contacts-photo">
+                <img src="photo.jpg" alt="Roberto Maria Cipollina">
               </div>
 
-              <ul class="contact-list">
-                <li>
-                  <span class="label">Email</span>
-                  <a href="mailto:robertomaria.cipollina@steffani.it">robertomaria.cipollina@steffani.it</a>
-                </li>
-                <li>
-                  <span class="label"></span>
-                  <a href="mailto:roberto.cipollina@conssp.it">roberto.cipollina@conssp.it</a>
-                </li>
-                <li>
-                  <span class="label">ORCID</span>
-                  <a href="https://orcid.org/0009-0002-9099-7707" target="_blank" style="font-family: 'Times New Roman', Times, serif; font-style: normal;">0009-0002-9099-7707</a>
-                </li>
-              </ul>
+              <div class="contacts-info">
+                <div class="affiliation-block">
+                  <div class="aff-title">Institutional Affiliation</div>
+                  <p>
+                    PhD Student<br>
+                    Department of Immersive Technologies Applied to Music<br>
+                    Conservatory "A. Steffani" of Castelfranco Veneto<br>
+                    Conservatory "G. Puccini" of La Spezia<br>
+                    La Spezia, Italy
+                  </p>
+                </div>
+
+                <ul class="contact-list">
+                  <li>
+                    <span class="label">Email</span>
+                    <a href="mailto:robertomaria.cipollina@steffani.it">robertomaria.cipollina@steffani.it</a>
+                  </li>
+                  <li>
+                    <span class="label"></span>
+                    <a href="mailto:roberto.cipollina@conssp.it">roberto.cipollina@conssp.it</a>
+                  </li>
+                  <li>
+                    <span class="label">ORCID</span>
+                    <a href="https://orcid.org/0009-0002-9099-7707" target="_blank" style="font-family: 'Times New Roman', Times, serif; font-style: normal;">0009-0002-9099-7707</a>
+                  </li>
+                </ul>
+              </div>
+
             </div>
+          </section>
 
-          </div>
-        </section>
+        </main>
 
-      </main>
+        <footer>
+          &copy; 2026 Roberto Maria Cipollina
+        </footer>
 
-      <footer>
-        &copy; 2026 Roberto Maria Cipollina
-      </footer>
+      </div><!-- /.content -->
+    </div><!-- /.content-outer -->
 
-    </div>
-  </div>
+  </div><!-- /.layout -->
 
   <script>
     function toggleNav() {
