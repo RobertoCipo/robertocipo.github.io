@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roberto Maria Cipollina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #f2e8d5;
+      --ink:     #6b3325;
+      --ink-mid: #8a4535;
+      --ink-lt:  #b07060;
+      --rule:    rgba(107, 51, 37, 0.25);
+      --sidebar: 200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'IM Fell English', serif;
+      min-height: 100vh;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent, transparent 28px,
+          rgba(107,51,37,0.04) 28px,
+          rgba(107,51,37,0.04) 29px
+        );
+    }
+
+    .layout { display: flex; min-height: 100vh; }
+
+    .sidebar {
+      width: var(--sidebar);
+      min-width: var(--sidebar);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 48px 24px 32px;
+      border-right: 1px solid var(--rule);
+      background-color: var(--bg);
+      z-index: 10;
+    }
+
+    .sidebar nav { display: flex; flex-direction: column; gap: 4px; }
+
+    .sidebar nav a {
+      font-family: 'Cinzel', serif;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-lt);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid transparent;
+      transition: color .2s, border-color .2s;
+      line-height: 1.3;
+    }
+
+    .sidebar nav a.sub {
+      font-size: .58rem;
+      letter-spacing: .14em;
+      padding: 4px 0 4px 10px;
+      color: rgba(176, 112, 96, 0.55);
+      font-weight: 400;
+    }
+
+    .sidebar nav a.sub:hover,
+    .sidebar nav a.sub.active { color: var(--ink-lt); border-bottom-color: transparent; }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active { color: var(--ink); border-bottom-color: var(--rule); }
+
+    .content { flex: 1; max-width: 740px; padding: 80px 48px 120px; }
+
+    header { margin-bottom: 32px; animation: fadeDown .9s ease both; }
+
+    .site-name-main {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 4vw, 2.25rem);
+      font-weight: 400;
+      letter-spacing: .08em;
+      line-height: 1.2;
+    }
+
+    section {
+      padding: 64px 0;
+      border-top: 2px solid rgba(107, 51, 37, 0.35);
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp .8s ease forwards;
+    }
+
+    section:first-child { border-top: none; }
+    section:nth-child(2) { animation-delay: .45s; }
+    section:nth-child(3) { animation-delay: .6s; }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2.4vw, 1.45rem);
+      font-weight: 400;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      line-height: 1.2;
+    }
+
+    h2::before { content: '— '; }
+    h2::after  { content: ' —'; }
+
+    p { font-size: 1.05rem; line-height: 1.85; color: var(--ink-mid); max-width: 64ch; }
+    p + p { margin-top: 16px; }
+
+    .portfolio-subcategory {
+      font-family: 'Cinzel', serif;
+      font-size: .68rem;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--ink-lt);
+      margin: 36px 0 4px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .portfolio-list { list-style: none; }
+
+    .portfolio-list li {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .portfolio-list li:first-child { border-top: none; }
+    .portfolio-list li.no-border   { border-bottom: none; }
+
+    .portfolio-info { display: flex; flex-direction: column; gap: 5px; }
+
+    .portfolio-title {
+      font-family: 'Cinzel', serif;
+      font-size: .9rem;
+      letter-spacing: .08em;
+      color: var(--ink);
+    }
+
+    .portfolio-year {
+      font-family: 'Cinzel', serif;
+      font-size: .68rem;
+      letter-spacing: .18em;
+      color: var(--ink-lt);
+    }
+
+    .portfolio-desc {
+      font-size: .92rem;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .portfolio-link {
+      font-family: 'Cinzel', serif;
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--rule);
+      text-underline-offset: 3px;
+      border-bottom: none;
+      padding-bottom: 2px;
+      display: inline-block;
+      margin-top: 4px;
+      transition: color .2s;
+    }
+
+    .portfolio-link:hover { color: var(--ink-lt); text-decoration-color: var(--ink-lt); }
+
+    #research p {
+      font-size: .9rem;
+      line-height: 1.85;
+      color: var(--ink-lt);
+      font-weight: 400;
+      max-width: 64ch;
+    }
+
+    #research p + p { margin-top: 16px; }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .skill-tag {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      border: 1px solid var(--rule);
+      padding: 7px 14px;
+      border-radius: 2px;
+      background: rgba(107,51,37,.03);
+      white-space: nowrap;
+    }
+
+    .contacts-layout { display: flex; gap: 40px; align-items: flex-start; }
+
+    .contacts-photo {
+      width: 130px;
+      min-width: 130px;
+      aspect-ratio: 3/4;
+      background: rgba(107,51,37,.08);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-lt);
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-align: center;
+      padding: 8px;
+      line-height: 1.5;
+    }
+
+    .contacts-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .contacts-info { flex: 1; }
+
+    .affiliation-block {
+      background: rgba(107,51,37,.05);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+
+    .affiliation-block .aff-title {
+      font-family: 'Cinzel', serif;
+      font-size: .68rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ink-lt);
+      margin-bottom: 10px;
+    }
+
+    .affiliation-block p { font-size: .95rem; line-height: 1.75; }
+
+    .contact-list { list-style: none; }
+
+    .contact-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .contact-list .label {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-lt);
+      min-width: 110px;
+    }
+
+    .contact-list a {
+      color: var(--ink);
+      text-decoration: none;
+      font-style: italic;
+      font-size: .95rem;
+      transition: color .2s;
+    }
+
+    .contact-list a:hover { color: var(--ink-lt); }
+
+    footer {
+      text-align: center;
+      padding: 24px 48px;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      color: var(--ink-lt);
+      border-top: 1px solid var(--rule);
+    }
+
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 18px; right: 20px;
+      z-index: 200;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      width: 40px; height: 40px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px; height: 1px;
+      background: var(--ink);
+      transition: transform .3s, opacity .3s;
+    }
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(107,51,37,.18);
+      z-index: 150;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .nav-popup {
+      position: fixed;
+      top: 0; right: 0;
+      width: 220px; height: 100vh;
+      background: var(--bg);
+      border-left: 1px solid var(--rule);
+      z-index: 160;
+      padding: 64px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+    }
+
+    .nav-popup a {
+      font-family: 'Cinzel', serif;
+      font-size: .8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: color .2s;
+    }
+
+    .nav-popup a:hover { color: var(--ink-lt); }
+
+    body.nav-open .nav-overlay { display: block; opacity: 1; }
+    body.nav-open .nav-popup   { transform: translateX(0); }
+    body.nav-open .hamburger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    body.nav-open .hamburger span:nth-child(2) { opacity: 0; }
+    body.nav-open .hamburger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 720px) {
+      .sidebar    { display: none; }
+      .hamburger  { display: flex; }
+      .nav-overlay { display: block; pointer-events: none; }
+      body.nav-open .nav-overlay { pointer-events: all; }
+      .content { padding: 48px 24px 80px; }
+      .contacts-layout { flex-direction: column; }
+      .contacts-photo  { width: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-overlay" onclick="toggleNav()"></div>
+  <nav class="nav-popup">
+    <a href="#portfolio" onclick="toggleNav()">Portfolio</a>
+    <a href="#selected-compositions" onclick="toggleNav()" style="font-size:.7rem;padding:10px 0 10px 16px;letter-spacing:.14em;color:var(--ink-lt);">Selected Compositions</a>
+    <a href="#conferences" onclick="toggleNav()" style="font-size:.7rem;padding:10px 0 10px 16px;letter-spacing:.14em;color:var(--ink-lt);">Conferences</a>
+    <a href="#other-works" onclick="toggleNav()" style="font-size:.7rem;padding:10px 0 10px 16px;letter-spacing:.14em;color:var(--ink-lt);">Other Works</a>
+    <a href="#books-papers" onclick="toggleNav()" style="font-size:.7rem;padding:10px 0 10px 16px;letter-spacing:.14em;color:var(--ink-lt);">Books &amp; Papers</a>
+    <a href="#studies" onclick="toggleNav()" style="font-size:.7rem;padding:10px 0 10px 16px;letter-spacing:.14em;color:var(--ink-lt);">Academic Studies</a>
+    <a href="#main-expertise" onclick="toggleNav()" style="font-size:.7rem;padding:10px 0 10px 16px;letter-spacing:.14em;color:var(--ink-lt);">Main Expertise</a>
+    <a href="#research"  onclick="toggleNav()">Research &amp; Practice</a>
+    <a href="#contacts"  onclick="toggleNav()">Contacts</a>
+  </nav>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#selected-compositions" class="sub">Selected Compositions</a>
+        <a href="#conferences" class="sub">Conferences</a>
+        <a href="#other-works" class="sub">Other Works</a>
+        <a href="#books-papers" class="sub">Books &amp; Papers</a>
+        <a href="#studies" class="sub">Academic Studies</a>
+        <a href="#main-expertise" class="sub">Main Expertise</a>
+        <a href="#research">Research &amp; Practice</a>
+        <a href="#contacts">Contacts</a>
+      </nav>
+    </aside>
+
+    <div class="content">
+
+      <header>
+        <div class="site-name-main">Roberto Maria Cipollina</div>
+      </header>
+
+      <main>
+
+        <section id="portfolio">
+          <h2>Portfolio</h2>
+
+          <div class="portfolio-subcategory" id="selected-compositions">Selected Compositions</div>
+
+          <ul class="portfolio-list">
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2025</div>
+                <div class="portfolio-title">Kassia</div>
+                <div class="portfolio-desc">Electroacoustic work. Commission: Resonance of Stones. Première: Naxos, Greece.</div>
+                <a class="portfolio-link" href="https://www.mantinea.institute/ros_overview/" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2025</div>
+                <div class="portfolio-title">Ulysses IIa</div>
+                <div class="portfolio-desc">For violin solo and live electronics. IRCAM. Première: Eleonora Sofia Podestà — Liepāja Theatre, Latvia.</div>
+                <a class="portfolio-link" href="https://forum.ircam.fr/article/detail/ulysses-2-hybrid-composition-for-violin-and-responsive-ai-systems-by-eleonora-sofia-podesta-and-roberto-maria-cipollina/" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2024</div>
+                <div class="portfolio-title">Al-Qantarah</div>
+                <div class="portfolio-desc">Commission by Icarus Ensemble. Première: Civic Ethnographic and Diocesan Museum "Giovanni Podenzana", La Spezia.</div>
+                <a class="portfolio-link" href="https://conssp.it/wp-content/uploads/2024/11/Locandina-Concerto-1-dicembre.pdf" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2024</div>
+                <div class="portfolio-title">Modules for an Opera</div>
+                <div class="portfolio-desc">For saxophone and piano. Première: Real Academia de Bellas Artes de San Fernando, Madrid — David Náñez (tenor saxophone) and Kayoko Morimoto (piano).</div>
+                <a class="portfolio-link" href="https://www.realacademiabellasartessanfernando.com/actividades/conciertos/sax-and-villas/" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2023</div>
+                <div class="portfolio-title">Apparuit</div>
+                <div class="portfolio-desc">For two saxophones and piano. Première: Willa Lentza, Szczecin — Giuseppe Bruno (piano).</div>
+                <a class="portfolio-link" href="https://willa-lentza.pl/strona/365-SAXandVILLAS_2024_" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2022</div>
+                <div class="portfolio-title">Lu Re d'Amuri</div>
+                <div class="portfolio-desc">For clarinet and saxophone. Première: Conservatorio "A. Scarlatti", Palermo — Mario Romeo and Emanuele Anzalone.</div>
+                <a class="portfolio-link" href="https://laboiteamusique.eu/product/reedin-the-airn-duo-romance-emanuele-salvatore-anzalone/" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2021</div>
+                <div class="portfolio-title">Variazioni su un tema di Bellini</div>
+                <div class="portfolio-desc">For guitar. Première: Davide Sciacca — Royal Northern College of Music, Manchester.</div>
+                <a class="portfolio-link" href="https://e-space.mmu.ac.uk/632179/1/Davide%20Sciacca%20-%20PhD%20Thesis.pdf" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2021</div>
+                <div class="portfolio-title">Eight String Quartets</div>
+                <div class="portfolio-desc">Multimedia work. Academy of Ideas, Toronto, Canada.</div>
+                <a class="portfolio-link" href="https://www.youtube.com/@academyofideas" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2019</div>
+                <div class="portfolio-title">Alchimiae</div>
+                <div class="portfolio-desc">Multimedia work for string orchestra. Commission: Lu.C.C.A. – Lucca Center of Contemporary Art, Lucca.</div>
+                <a class="portfolio-link" href="https://artsupp.com/it/lucca/mostre/alchimie-lucca-museum" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li class="no-border">
+              <div class="portfolio-info">
+                <div class="portfolio-year">2018</div>
+                <div class="portfolio-title">A Lover's Tale</div>
+                <div class="portfolio-desc">For violin and guitar. Première: Convitto delle Arti, Noto — Davide Sciacca and Maria Natalia Ruscica (Ten Strings Duo).</div>
+                <a class="portfolio-link" href="https://globusmagazine.it/134891-2/" target="_blank">View →</a>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="portfolio-subcategory" style="margin-top: 48px;" id="conferences">Conferences</div>
+
+          <ul class="portfolio-list">
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2026</div>
+                <div class="portfolio-title">Artistic Research, Higher Education and Technological Innovation in Opera</div>
+                <div class="portfolio-desc">Casa Italiana Zerilli-Marimò, New York University. International symposium examining the intersections of artistic research, conservatory education, and emerging technologies in contemporary opera production and performance.</div>
+                <a class="portfolio-link" href="https://www.casaitaliananyu.org/events/artistic-research-higher-education-and-technological-innovation-in-opera-4/" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2025</div>
+                <div class="portfolio-title">New Technologies Applied to Music Teaching and Performance</div>
+                <div class="portfolio-desc">International Day of Artistic Research, Conservatorio "G. Puccini", La Spezia. A research presentation within the doctoral programme in Artistic Research on Musical Heritage, addressing immersive technologies, AI, and their applications to musical practice and pedagogy. With Eleonora Sofia Podestà.</div>
+                <a class="portfolio-link" href="https://conssp.it/2025/11/03/giornata-internazionale-della-ricerca-artistica-07-novembre-2025/" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2025</div>
+                <div class="portfolio-title">Ulysses 2: Hybrid Composition for Violin and Responsive AI Systems</div>
+                <div class="portfolio-desc">IRCAM Forum Workshops Hors-les-Murs, Rīga–Liepāja, Latvia. A presentation of a collaborative work integrating Somax2 real-time generative AI with live violin improvisation, exploring co-creative human-machine interaction within a structured formal framework. With Eleonora Sofia Podestà.</div>
+                <a class="portfolio-link" href="https://forum.ircam.fr/article/detail/ulysses-2-hybrid-composition-for-violin-and-responsive-ai-systems-by-eleonora-sofia-podesta-and-roberto-maria-cipollina/" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2020</div>
+                <div class="portfolio-title">Dalla didattica alla composizione: i palazzi della memoria in musica</div>
+                <div class="portfolio-desc">Festival Amfiteatrof, Levanto. An exploration of the method of loci as a pedagogical and compositional tool, tracing its classical origins and its application to music learning and creative practice.</div>
+                <a class="portfolio-link" href="https://levantomusicfestival.it/evento/dalla-didattica-alla-composizione-i-palazzi-della-memoria-in-musica/" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li class="no-border">
+              <div class="portfolio-info">
+                <div class="portfolio-year">2018</div>
+                <div class="portfolio-title">Mario Castelnuovo-Tedesco: Capriccio Diabolico e Tarantella</div>
+                <div class="portfolio-desc">Castello Ursino, Catania. A philological and stylistic analysis of the dispute between composer and editor, with a focus on compositional choices and their implications for contemporary guitar writing.</div>
+                <a class="portfolio-link" href="http://www.elisaguccione.it/sicilianpeople/roberto-cipollina-e-mario-castelnuovo-tedesco-al-castello-ursino-per-il-centro-magma-di-catania/" target="_blank">View →</a>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="portfolio-subcategory" style="margin-top: 48px;" id="other-works">Other Works</div>
+
+          <ul class="portfolio-list">
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2025 –</div>
+                <div class="portfolio-title">Opera VR</div>
+                <div class="portfolio-desc">Lead Designer and 3D Modeler for an immersive virtual reality environment for opera education. The spatial architecture of the platform is grounded in the method of loci, translating key dramatic and musical elements into explorable symbolic objects and environments. Within the project, Cipollina also serves as instructor of the method of loci technique.</div>
+                <a class="portfolio-link" href="https://opera-vr.com" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2025 –</div>
+                <div class="portfolio-title">Blender Instructor — Cocotechlab</div>
+                <div class="portfolio-desc">3D modeling at Cocotechlab, Cologne.</div>
+                <a class="portfolio-link" href="#">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2019 – 2024</div>
+                <div class="portfolio-title">Guitar Teacher — Public Secondary Schools</div>
+                <div class="portfolio-desc">Classical guitar teacher in state secondary schools (La Spezia).</div>
+              </div>
+            </li>
+
+            <li class="no-border">
+              <div class="portfolio-info">
+                <div class="portfolio-year">2016 – 2023</div>
+                <div class="portfolio-title">Guitar &amp; Music Theory Instructor — Private Academies</div>
+                <div class="portfolio-desc">Classical and electric guitar, solfège and harmony at Officine Sonore, Caltanissetta (2016–2018) and Accademia Bianchi, Sarzana (2023).</div>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="portfolio-subcategory" style="margin-top: 48px;" id="books-papers">Books &amp; Papers</div>
+
+          <ul class="portfolio-list">
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2025</div>
+                <div class="portfolio-title">Ulysses IIa: Structured Contingency and Intersubjectivity in Composition with Co-generative Systems</div>
+                <div class="portfolio-desc">Paper. SPAMEC — Conservatorio "San Pietro a Majella", Naples.</div>
+                <a class="portfolio-link" href="#">View →</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2020</div>
+                <div class="portfolio-title">Guitar Writing Applied: Modern Orchestration Systems in Symphonic and Chamber Contexts</div>
+                <div class="portfolio-desc">Book. Published in Italian (2019) and English (2020). ISBN 9781869173259</div>
+                <a class="portfolio-link" href="https://www.amazon.com/dp/B0977FLBD2" target="_blank">View →</a>
+              </div>
+            </li>
+
+            <li class="no-border">
+              <div class="portfolio-info">
+                <div class="portfolio-year">2018</div>
+                <div class="portfolio-title">Mario Castelnuovo-Tedesco: "Capriccio Diabolico" and "Tarantella" within the Problem of the Philological Analysis of the Editions for Execution Purposes</div>
+                <div class="portfolio-desc">Book. Published in Italian (2018) and English (2019). ISBN 9781795175296</div>
+                <a class="portfolio-link" href="https://www.amazon.com/dp/B07N4QSLYS" target="_blank">View →</a>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="portfolio-subcategory" style="margin-top: 48px;" id="studies">Academic Studies</div>
+
+          <ul class="portfolio-list">
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2025</div>
+                <div class="portfolio-title">Master's Degree in Composition</div>
+                <div class="portfolio-desc">Conservatorio "G. Puccini", La Spezia</div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2024</div>
+                <div class="portfolio-title">Studies in Conducting and Musical Phenomenology</div>
+                <div class="portfolio-desc">Associazione Celibidache</div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2024</div>
+                <div class="portfolio-title">Master in CLIL Teaching</div>
+                <div class="portfolio-desc">eCampus</div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2021</div>
+                <div class="portfolio-title">Teaching Qualification AB56 — Classical Guitar</div>
+                <div class="portfolio-desc">Ministry of Education, Italy</div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2021</div>
+                <div class="portfolio-title">English Language Certification C2</div>
+                <div class="portfolio-desc">AELS</div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-info">
+                <div class="portfolio-year">2020</div>
+                <div class="portfolio-title">Master in Music Applied to Images</div>
+                <div class="portfolio-desc">Conservatory "L. Boccherini", Lucca</div>
+              </div>
+            </li>
+
+            <li class="no-border">
+              <div class="portfolio-info">
+                <div class="portfolio-year">2019</div>
+                <div class="portfolio-title">Master's Degree in Classical Guitar</div>
+                <div class="portfolio-desc">Conservatory "V. Bellini", Caltanissetta</div>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="portfolio-subcategory" style="margin-top: 48px;" id="main-expertise">Main Expertise</div>
+
+          <div class="skills-grid">
+            <span class="skill-tag">Composition</span>
+            <span class="skill-tag">Acoustics &amp; Psychoacoustics</span>
+            <span class="skill-tag">Acoustic Simulation &amp; Auralization</span>
+            <span class="skill-tag">Classical Guitar</span>
+            <span class="skill-tag">Electroacoustic Composition</span>
+            <span class="skill-tag">Audio Engineering</span>
+            <span class="skill-tag">Electric Guitar</span>
+            <span class="skill-tag">Conducting</span>
+            <span class="skill-tag">3D Modelling &amp; VR</span>
+            <span class="skill-tag">Method of Loci</span>
+          </div>
+
+        </section>
+
+        <section id="research">
+          <h2>Research &amp; Practice</h2>
+          <p>
+            Roberto Maria Cipollina is a composer, guitarist, and researcher whose work sits at the intersection of composition, immersive technologies, and acoustic heritage. He is currently a PhD student in the joint doctoral programme in Artistic Research on Musical Heritage at Conservatory "A. Steffani" of Castelfranco Veneto and Conservatory "G. Puccini" of La Spezia, within the curriculum in Immersive Technologies Applied to Music.
+          </p>
+          <p>
+            His doctoral research, <em>Prometeo. Tragedia dell'ascolto</em>, focuses on the digital reconstruction of the wooden ark designed by Renzo Piano for Luigi Nono's 1984 work — a spatial instrument conceived as a necessary acoustic condition of the composition, dismantled in 1985 and never rebuilt. Through acoustic simulation, impulse response measurement at the church of San Lorenzo, and a navigable VR environment, the research documents for the first time the acoustic phenomena produced by the ark — absent from all subsequent performances.
+          </p>
+          <p>
+            In parallel, Cipollina pursues an independent line of research into composition with co-generative AI systems, developed through his work with Somax 2 at IRCAM. This research interrogates the relationship between authorial intention and machine agency, proposing the categories of structured contingency and intersubjectivity as frameworks for understanding human–AI co-creative interaction in musical performance.
+          </p>
+          <p>
+            His compositions have been performed across Europe and North America, and his work has been presented at international venues including IRCAM, the Royal Northern College of Music, and New York University.
+          </p>
+        </section>
+
+        <section id="contacts">
+          <h2>Contacts</h2>
+
+          <div class="contacts-layout">
+
+            <div class="contacts-photo">
+              <img src="photo.jpg" alt="Roberto Maria Cipollina">
+            </div>
+
+            <div class="contacts-info">
+              <div class="affiliation-block">
+                <div class="aff-title">Institutional Affiliation</div>
+                <p>
+                  PhD Student<br>
+                  Department of Immersive Technologies Applied to Music<br>
+                  Conservatory "A. Steffani" of Castelfranco Veneto<br>
+                  Conservatory "G. Puccini" of La Spezia<br>
+                  La Spezia, Italy
+                </p>
+              </div>
+
+              <ul class="contact-list">
+                <li>
+                  <span class="label">Email</span>
+                  <a href="mailto:robertomaria.cipollina@steffani.it">robertomaria.cipollina@steffani.it</a>
+                </li>
+                <li>
+                  <span class="label"></span>
+                  <a href="mailto:roberto.cipollina@conssp.it">roberto.cipollina@conssp.it</a>
+                </li>
+                <li>
+                  <span class="label">ORCID</span>
+                  <a href="https://orcid.org/0009-0002-9099-7707" target="_blank" style="font-family: 'Times New Roman', Times, serif; font-style: normal;">0009-0002-9099-7707</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        &copy; 2026 Roberto Maria Cipollina
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleNav() {
+      document.body.classList.toggle('nav-open');
+    }
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar nav a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.sidebar nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
